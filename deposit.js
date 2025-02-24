@@ -1,16 +1,20 @@
+document.getElementById("deposit-btn").addEventListener("click", function () {
+  const depositAmountStr = document.getElementById("depositeIN").value;
+  const depositAmount = parseFloat(depositAmountStr);
 
-document.getElementById('deposit-btn').addEventListener('click', function(){
-  const dipositAmountStr = document.getElementById('depositeIN').value;
-  const dipositAmount = parseFloat(dipositAmountStr);
-  const dipositAmountShowStr = document.getElementById('depositShow').innerText;
-  const dipositAmountShow = parseFloat(dipositAmountShowStr);
-  const currentTotal = dipositAmountShow + dipositAmount;
+  if (isNaN(depositAmount) || depositAmount <= 0) {
+    alert("Please enter a valid deposit amount.");
+    return;
+}
+
+  const depositAmountShowStr = document.getElementById("depositShow").innerText;
+  const depositAmountShow = parseFloat(depositAmountShowStr);
+  const currentTotal = depositAmountShow + depositAmount;
   const TotalDeposit = currentTotal;
-  document.getElementById('depositeIN').value = "";
-  document.getElementById('depositShow').innerText = currentTotal;
-  const balanceAmountStr = document.getElementById('balanceShow').innerText;
+  document.getElementById("depositeIN").value = "";
+  document.getElementById("depositShow").innerText = currentTotal;
+  const balanceAmountStr = document.getElementById("balanceShow").innerText;
   const balanceAmount = parseFloat(balanceAmountStr);
-  const newBalance = balanceAmount + dipositAmount;
-  document.getElementById('balanceShow').innerText = newBalance;
+  const newBalance = balanceAmount + depositAmount;
+  document.getElementById("balanceShow").innerText = newBalance;
 });
-
